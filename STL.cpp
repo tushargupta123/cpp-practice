@@ -4,6 +4,11 @@
 #include<algorithm>
 #include<forward_list>
 #include<list>
+#include<deque>
+#include<stack>
+#include<queue>
+#include<set>
+#include<map>
 using namespace std;
 
 // TEMPLATES
@@ -135,5 +140,105 @@ int main(){
     }
     cout<<endl;
     // all other operations of forward list also applicable on list
+
+
+
+
+
+
+
+    // Deque  -> elements can be inserted and deleted from both front and back
+    deque<int> d = {10,20,30};
+    d.push_back(5);
+    d.push_front(10);
+    d.pop_back();
+    d.insert(d.begin(),25);
+
+
+
+
+
+    // Stack
+    stack<int> st;
+    st.push(20);
+    st.push(30);
+    st.pop();
+    cout<<st.top()<<endl;
+
+
+
+
+
+
+    cout<<"PRIORITY QUEUE"<<endl;
+    // Priority Queue       -> it arranges all elements in descending order 
+    priority_queue<int> pq;
+    pq.push(10);
+    pq.push(30);
+    pq.push(5);
+    pq.pop();
+    cout<<pq.top()<<endl;
+
+    // to arrange all elements in ascending order
+    priority_queue<int ,vector<int> ,greater<int>> prq;
+    prq.push(10);
+    prq.push(30);
+    prq.push(5);
+    prq.push(2);
+    prq.pop();
+    cout<<prq.top()<<endl;
+
+    // we can also create pq using existing array
+    int arr_qu[] = {10,5,20};
+    priority_queue<int> prqu(arr_qu,arr_qu+3);
+    cout<<prqu.top()<<endl;
+
+
+
+
+
+    cout<<"SET"<<endl;
+    // Set   -> arranges in ascending order,removes duplicates
+    set<int> st_;
+    st_.insert(10);
+    st_.insert(20);
+    st_.insert(30);
+    st_.insert(10);      // duplicate not included
+    st_.insert(30);      // duplicate not included
+    st_.find(10);    //true
+    st_.erase(10);   // to remove all corresponding elements
+    for(int x:st_){
+        cout<<x<<" ";
+    }
+    cout<<endl;
+    // to reverse order use set<int,greater<int>> 
+    // in multiset it doesnot remove duplicates -> also erase function removes all the same elements
+    // unordered_set is same as set but there is no order in which elements are arranged it is implemented by hashing and all operations can be done in O(1) time.
+
+    // (s.find(arr[i]) != s.end())            
+    // s.find() gives address of that element we can check whether by equting the s.find() != s.end() 
+    // it means that if element is gound then its address would be not at s.end() i.e not in that set as s.end() returns the address just after the end of set.
+    //  hence if s.find() == s.end() it means that after traversal of set element is not found.
+
+
+
+
+
+
+
+
+    cout<<"MAP"<<endl;
+    // Map -> same as set but takes key value pair , removes duplicate key
+    map<int,int> mp;
+    mp.insert({1,20});
+    mp[2] = 40;
+    mp.insert({1,30});  // ignored
+    mp[1] = 60;         // this will not be ignored but update the value
+    mp.at(1) = 80;      // this updates the key
+    // diffrence bw mp[1] , mp.at(1) is mp[1] create a key with value 0 if it is not present but mp.at will throw error
+    for(auto x:mp){
+        cout<<x.first<<" "<<x.second<<endl;
+    }
+    // multimap can have same key with different value hence it cannot have []bracket implementation allowed
 }
 
