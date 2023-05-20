@@ -9,6 +9,8 @@
 #include<queue>
 #include<set>
 #include<map>
+#include<numeric>   // for accumulate()
+#include<tuple>
 using namespace std;
 
 // TEMPLATES
@@ -25,6 +27,19 @@ struct Pair{
     T getFirst() {return x;};
     T getSecond() {return y;};
 };
+
+struct Point{
+    int x,y;
+    Point(int i,int j) {x=i;y=j;}
+};
+
+bool myCmp(Point p1,Point p2){
+    return (p1.x<p2.x);
+}
+
+int myFunc(int x,int y){
+    return x*y;
+}
 
 int main(){
 
@@ -240,5 +255,103 @@ int main(){
         cout<<x.first<<" "<<x.second<<endl;
     }
     // multimap can have same key with different value hence it cannot have []bracket implementation allowed
+
+
+
+
+
+
+
+
+    vector<int> vect = {3,5,6,7,20};
+
+    // find()       -> (from,to,element) -> if found it returns address of that element
+    auto iter = find(vect.begin(), vect.end(),7);
+    if(iter == vect.end())
+        cout<<"Not found";
+    else{
+        cout<<"found at :"<<iter-vect.begin()<<endl;
+    }
+    // we should use find functions of map,set,string given by that containers itself as they are optimized for that particular container
+
+    // lower_bound() -> (from,to,element) -> returns an it having address of element greater than or equal to given value in a sorted array
+    auto iter_lowerBound = lower_bound(vect.begin(),vect.end(),7);
+    cout<<*iter_lowerBound<<endl;  // 7
+    auto iter_lowerBound_2 = lower_bound(vect.begin(),vect.end(),4);
+    cout<<*iter_lowerBound_2<<endl;  // 5
+
+    // upper_bound() -> returns element greater to the first greater element
+    auto iter_upperBound = upper_bound(vect.begin(),vect.end(),7);
+    cout<<*iter_upperBound<<endl;  // 20
+    auto iter_upperBound_2 = upper_bound(vect.begin(),vect.end(),4);
+    cout<<*iter_upperBound_2<<endl;  // 5
+
+    // is_permutation() -> (from_first_array,to_first_array,from_second_array) -> return true if both have same elements order doe not matter
+    vector<int> vect2 = {6,7,5,20,3};
+    if(is_permutation(vect.begin(),vect.end(),vect2.begin()))
+        cout<<"These have same elements"<<endl;
+    else
+        cout<<"These do not have same elements"<<endl;
+
+    // max_element() and min_element() -> (from,to,*comparison function)
+    vector<Point> vect3 = {{10,20},{20,30},{30,40}};
+    auto iter_max = max_element(vect3.begin(),vect3.end(),myCmp);
+    cout<<((*iter_max).x)<<" "<<((*iter_max).y)<<endl;
+
+    // count() -> (from,to,element) -> count of element
+    // binary_search() -> (from,to,element) -> same as find but here element should be in sorted order and time complexity is O(log n) where as in find it is O(n)
+    // fill() -> (from,to,element) -> replace all elements with given element
+
+    //rotate() -> (from,mid,to) -> it makes mid as first element and place elements in from - mid at last
+    rotate(vect.begin(),vect.begin()+3,vect.end());
+    for(int x:vect)
+        cout<<x<<" ";       // 7 20 3 5 6
+    cout<<endl;
+
+    // accumulate() -> (from,to,inital value,*function) -> it perform function on every element of array if funtion is not provided then it adds all elements
+    int init_res = 0;
+    cout<<accumulate(vect.begin(),vect.end(),init_res)<<endl;
+    int init_res_3 = 1;
+    cout<<accumulate(vect.begin(),vect.end(),init_res_3,myFunc)<<endl;
+
+    // make_heap() -> (from,to) -> make heap (max element at top by default)
+    make_heap(vect.begin(),vect.end());
+    cout<<vect.front()<<endl;       // max element
+    pop_heap(vect.begin(),vect.end());  // it just pops the element on front (max element) and put it at last (it does not remove it from array)
+    cout<<vect.front()<<endl;       
+    vect[4] = 50;               // replacing poped element
+    push_heap(vect.begin(),vect.end());     // it push new element to heap
+    cout<<vect.front()<<endl;
+
+    //merge() -> (from_first_array,to_first_array,from_second_array,to_second_array,new_array of added size) -> both arrays should be sorted first then only merge() works
+    int arr_1[] = {10,20,30};
+    int arr_2[] = {15,25,35};
+    int arr_3[6];
+    merge(arr_1,arr_1+3, arr_2,arr_2+3, arr_3);
+    for(int x:arr_3)
+        cout<<x<<" ";
+    cout<<endl;
+
+    // reverse() -> (from,to) -> reverse the order
+    // (pos!=string::npos)      // we use string::npos it means that position of element is -1 i.e it is not present in whole string
+    // str.find("geeks",pos+1);  // find can take two parameters (element,from where to start)
+
+
+
+
+
+
+    // tuple
+    tuple<int,string,int> tp = make_tuple(10,"tushar",20);
+    cout<<get<0>(tp)<<" "<<get<1>(tp)<<" "<<get<2>(tp)<<endl;
+    get<0>(tp) = 14;
+    cout<<get<0>(tp)<<endl;
+    cout<<tuple_size<decltype(tp)>::value<<endl;
+    string s;
+    int x,y;
+    tie(x,s,y) = tp;
+    cout<<x<<" "<<y<<" "<<s<<endl;
+    tuple<int,string,int> tp2 = make_tuple(10,"tushar",20);
+    auto tp3 = tuple_cat(tp,tp2);
 }
 
