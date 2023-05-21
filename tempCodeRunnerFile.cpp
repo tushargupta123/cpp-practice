@@ -1,2 +1,1 @@
-
-    // cout<<str;
+arr[i] & last_set_bit
