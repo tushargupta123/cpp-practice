@@ -1,0 +1,9 @@
+1. Binary array                                             -> partition of array (lumotot,hoare's algo)   =>  O(n) time
+2. array with three value                                   -> partition of array (lumotot,hoare's algo)   =>  O(n) time
+3. array of size n and small ranged                         -> counting sort   =>  O(n) time
+4. array of size n and range is n2 or n3                    -> radix sort    => O(n) time and O(n) extra space
+5. array of uniformly distributed data over a range         -> bucket sort
+6. when memory writes are costly                            -> selection sort , cycle sort
+7. when adjacent swaps are allowed                          -> bubble sort
+8. when array is small                                      -> insertion sort
+9. when available extra memory is small                     -> shell sort       => O(n(log n)^2) time

@@ -1,0 +1,23 @@
+in open addressing we dont use any extra space as we use in chaining we use diffrent hash functions to compute the result within that same array
+1. Linear probbing 
+hash(key) = (hash1(key) + i)           => hash1(key) = key % m   => 'm' must can be greatest prime no. less than size of hash table
+                                       => 'i' is the no. of collisions happenend for particular key.
+-> insert        -> on collision we try element to put in next available free slot
+-> search        -> we search normally first if not found we found till next free slot from that key or whole array is full then we traverse whole array
+                    and stop if we come to where we begin
+-> delete        -> we first search using search function if found we donot make that slot empty else it will make error while next search we put DELETE in that slot
+                    so that in case of deletion search wont stop
+Linerar probbing leads to clustering
+
+2. Quadratic probbing
+hash(key) = (hash1(key) + i^2)   we dont move lineraly we move Quadraticly .
+
+3. Double hashing
+hash(key) = (hash1(key) + i hash2(key)) % m 
+ex -> hash1(key) = (key % 7)    
+      hash2(key) = 6 - (key % 6)
+
+
+Load factor (alpha) = n/m
+    n = no. of element
+    n = total slots in table
