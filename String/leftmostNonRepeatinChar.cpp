@@ -1,0 +1,16 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+    string str = "geeksforgeeks";
+    bool visited[26];
+    fill(visited,visited+26,false);
+    int res = -1;
+    for(int i=str.length()-1;i>=0;i--){
+        if(!visited[str[i]]){
+            visited[str[i]] = true;
+            res = i;
+        }
+    }
+    cout<<res;
+}
