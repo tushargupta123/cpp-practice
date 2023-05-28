@@ -128,7 +128,7 @@ struct stack{
 // Two stack Implementation in an array
 struct TwoStack{        // we will be working bidirectionally
     int *arr,cap,top1,top2;
-    TwoStack(int n){cap=n;top1=-1;top2=cap;arr=new int[cap]};
+    TwoStack(int n){cap=n;top1=-1;top2=cap;arr=new int[cap];};
     void push1(int x){
         if(top1<top2-1){
             top1++;
