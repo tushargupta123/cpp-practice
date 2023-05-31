@@ -115,7 +115,7 @@ int main(){
 
 
 
-    // Forward List    -> singly lisnked list
+    // Forward List    -> singly linked list
     forward_list<int> fl,fl2;
     fl.assign({40,50});     // it should be used only in start else it would remove all elements and make it new one 
     fl.push_front(10);
