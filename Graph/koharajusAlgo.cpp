@@ -7,6 +7,7 @@ using namespace std;
 // order the vertices in decreasing order of their complete time
 // reverse all edges
 // do dfs of the reversed graph int the order obtained in step 1. for each vertex print all reachable vertices as one strongly connected component
+// strongly connected component => if every vertex is reachable from every other vertex
 
 void addEdge(vector<int>* adj,int u,int v,vector<int>* adjRev){
     adj[u].push_back(v);
