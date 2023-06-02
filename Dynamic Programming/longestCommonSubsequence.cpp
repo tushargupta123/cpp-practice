@@ -80,3 +80,18 @@ int main()
     // cout << lcs(s1, s2, n, m, memo);
     cout << lcsTab(s1, s2);
 }
+
+// Variation is LCS
+
+// 1. shortest common supersequence
+// Q . we have to take two strings and make a new string which has all the characters of both the strings 
+// A . we will find the lcs and add left out characters from both strings
+
+// 2. Longest palindromic subsequence
+// Q . we have to tell subsequence which is palindrome in that string
+// A . we will make another string s2 which is reverse of s1 and then find lcs .
+
+// 3. Longest repeating subsequence
+// Q . we have to find longest set of repeating characters in string s1.
+// A . we will make another string s2 same as s1 and then find lcs also add another condition that if any character matches then their index should be equal
+

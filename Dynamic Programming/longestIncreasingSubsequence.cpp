@@ -62,3 +62,16 @@ int main() {
     cout << LISDP(arr, 7) << endl;
     return 0;
 }
+
+// Variations in LIS
+
+// 1. mininmum deletions to make array sorted
+// we can calculate lis and then result will be n - lis.
+
+// 2. maximum sum increasing subsequence
+// Q . we have to find increasing subsequence with max sum not with max elements
+// A . we will have same code but instead of adding 1 to result so that we can find lis we have to add element in tail array and then res will be the max sum found
+
+// 3. maximum length biotonic subsequence
+// Q . we have to find subsequence which is first increasing and then decreasing
+// A . we will find lis and the lds (run same code from end of array) and then res = max(res,lis[i]+lds[i]-1)
