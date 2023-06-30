@@ -10,7 +10,7 @@ int main()
 {
     string str = "(({}))[";
     stack<char> s;
-    for (int c : str)
+    for (char c : str)
     {
         if (c == '{' || c == '(' || c == '[')
         {

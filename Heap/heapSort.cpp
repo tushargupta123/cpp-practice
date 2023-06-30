@@ -1,8 +1,6 @@
 #include<iostream>
 using namespace std;
 
-// 3580048088
-
 void maxHeap(int arr[],int n,int i){
     int lt = 2*i+1, rt = 2*i+2;
     int largest = i;
