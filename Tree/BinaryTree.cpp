@@ -194,22 +194,22 @@ void spiralTraversal(Node *root){
             Node *temp = s1.top();
             s1.pop();
             cout<<temp->key<<" ";
-            if(temp->right){
-            s2.push(temp->right);
-            }
             if(temp->left){
             s2.push(temp->left);
+            }
+            if(temp->right){
+            s2.push(temp->right);
             }
         }
         while(!s2.empty()){
             Node *temp = s2.top();
             s2.pop();
             cout<<temp->key<<" ";
-            if(temp->left){
-            s2.push(temp->left);
-            }
             if(temp->right){
-            s2.push(temp->right);
+            s1.push(temp->right);
+            }
+            if(temp->left){
+            s1.push(temp->left);
             }
         }
     }
