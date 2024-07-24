@@ -1,0 +1,17 @@
+1. Encapsulation
+Encapsulation is the bundling of data and methods that operate on that data within a single unit or class, and restricting access to some of the object's components.
+
+2. Inheritance
+Inheritance is a mechanism where a new class (derived class) inherits properties and behaviors from an existing class (base class).
+
+3. Polymorphism
+Polymorphism allows methods to do different things based on the object it is acting upon, typically through method overriding.
+
+4. Abstraction
+Abstraction is the concept of hiding the complex implementation details and showing only the necessary features of an object.
+
+Summary
+Encapsulation: Bundling data and methods, restricting access (C++: private members, JS: underscore convention).
+Inheritance: New class inherits properties from an existing class (C++: public inheritance, JS: extends).
+Polymorphism: Methods doing different things based on the object (C++: virtual functions, JS: method overriding).
+Abstraction: Hiding complex details, showing only necessary parts (C++: pure virtual functions, JS: method throwing error).
